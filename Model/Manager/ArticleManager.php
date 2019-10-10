@@ -13,7 +13,7 @@ use Model\Exceptions\ArticleNotFoundException;
 
 /**
  * Manage article from database
- * 
+ *
  * Class ArticleManager
  * @package Manager
  */
@@ -74,5 +74,12 @@ abstract class ArticleManager extends DbManager implements ItemInterface
         }
 
         return $articles;
+    }
+
+    public static function getByPage($numPage)
+    {
+      $articles = self::getAll();
+      $pageArticle = array_slice($articles, $numPage * 4 - 4, $numPage * 4);
+      return $pageArticle;
     }
 }

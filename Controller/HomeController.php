@@ -22,7 +22,8 @@ class HomeController extends LayoutController
      */
     public function viewAction()
     {
-        $params = [ 'articles' => ArticleManager::getAll() ];
+        //$params = [ 'articles' => ArticleManager::getAll() ];
+        $params = [ 'articles' => ArticleManager::getByPage(2) ];
 
         $this->render('home', $params);
     }
